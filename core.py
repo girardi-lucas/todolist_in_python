@@ -19,14 +19,22 @@ while True:
       "concluida" : False,
     }
     
-    concluiu_tarefa = input("Você já concluiu essa tarefa?")
+    concluiu_tarefa = input("Você já concluiu essa tarefa?").strip().lower()            # Strip ignora espaços em branco
 
-    if concluiu_tarefa == "sim":
-      dicionario_tarefa["concluida"] = True
-    else:
-      dicionario_tarefa["concluida"] = False
+    while True:
+      if concluiu_tarefa in ["sim", "nao"]:
+        if concluiu_tarefa == "sim":
+          dicionario_tarefa["concluida"] = True
+          tarefas.append(dicionario_tarefa)
+          break
+        elif concluiu_tarefa == "nao":
+          dicionario_tarefa["concluida"] = False
+          tarefas.append(dicionario_tarefa)
+          break
+      else:
+        print("Tente novamente, só serão aceitas respostas sim ou não")
+        concluiu_tarefa = input("Você já concluiu essa tarefa?").strip().lower()
 
-    tarefas.append(dicionario_tarefa)
 
   elif opcao == 2:
     contador = 0
