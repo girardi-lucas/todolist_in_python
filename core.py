@@ -27,6 +27,8 @@ while True:
 
     if concluiu_tarefa == "sim":
       dicionario_tarefa["concluida"] = True
+    else:
+      dicionario_tarefa["concluida"] = False
 
     tarefas.append(dicionario_tarefa)
 
@@ -34,7 +36,11 @@ while True:
     contador = 0
     for i in tarefas:
       contador += 1
-      print(contador, i["nome"])
+      if i["concluida"] == True :
+        print(contador, i["nome"], "Concluida")
+      else:
+        print(contador, i["nome"], "Pendente")
+        
 
   elif opcao == 3:
     contador_dois = 0
