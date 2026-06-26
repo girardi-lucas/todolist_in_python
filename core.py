@@ -26,10 +26,12 @@ while True:
         if concluiu_tarefa == "sim":
           dicionario_tarefa["concluida"] = True
           tarefas.append(dicionario_tarefa)
+          print("Tarefa adicionada com sucesso !")
           break
         elif concluiu_tarefa == "nao":
           dicionario_tarefa["concluida"] = False
           tarefas.append(dicionario_tarefa)
+          print("Tarefa adicionada com sucesso !")
           break
       else:
         print("Tente novamente, só serão aceitas respostas sim ou não")
@@ -59,8 +61,20 @@ while True:
     buscador = escolha_usuario - 1
     tarefas[buscador]["concluida"] = True
     
-
   elif opcao == 4:
+
+    contador_tres = 0
+    for i in tarefas:
+      contador_tres += 1
+      print(contador_tres, i["nome"])
+      
+    excluir_tarefa = int(input("Qual tarefa você deseja excluir ?"))
+    buscador_dois = excluir_tarefa - 1
+    tarefas.pop(buscador_dois)
+    print("Tarefa excluida com sucesso !")
+
+
+  elif opcao == 5:
     print("Fechando programa...")
     break
 
