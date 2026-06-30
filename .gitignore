@@ -8,7 +8,7 @@ env/
 venv/
 .env
 
-# IDEs (se você usa VS Code ou PyCharm)
+# IDEs
 .vscode/
 .idea/
 
