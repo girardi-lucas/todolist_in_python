@@ -1,4 +1,5 @@
 import functions
+import database
 
 tarefas = []
 
@@ -18,20 +19,21 @@ while True:
       "nome" : nova_tarefa,
       "concluida" : False,
     }
-    
     concluiu_tarefa = input("Você já concluiu essa tarefa?").strip().lower()            # Strip ignora espaços em branco
 
     while True:
       if concluiu_tarefa in ["sim", "nao"]:
         if concluiu_tarefa == "sim":
           dicionario_tarefa["concluida"] = True
-          tarefas.append(dicionario_tarefa)
+          database.cursor.execute("INSERT INTO lista_tarefas (nome, concluida) VALUES (?, ?)", (dicionario_tarefa["nome"], dicionario_tarefa["concluida"]))
           print("Tarefa adicionada com sucesso !")
+          database.conexao.commit()
           break
         elif concluiu_tarefa == "nao":
           dicionario_tarefa["concluida"] = False
-          tarefas.append(dicionario_tarefa)
+          database.cursor.execute("INSERT INTO lista_tarefas (nome, concluida) VALUES (?, ?)", (dicionario_tarefa["nome"], dicionario_tarefa["concluida"]))
           print("Tarefa adicionada com sucesso !")
+          database.conexao.commit()
           break
       else:
         print("Tente novamente, só serão aceitas respostas sim ou não")

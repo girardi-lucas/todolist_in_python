@@ -11,6 +11,5 @@ conexao = sqlite3.connect('lista_tarefas.db')
 
 cursor = conexao.cursor()
 
-# cursor.execute("CREATE TABLE tarefas (id INTEGER NOT NULL PRIMARY KEY, nome TEXT NOT NULL, concluida INTEGER)")
+cursor.execute("CREATE TABLE IF NOT EXISTS lista_tarefas (id INTEGER NOT NULL PRIMARY KEY, nome TEXT NOT NULL, concluida INTEGER)")
 
-conexao.close()
